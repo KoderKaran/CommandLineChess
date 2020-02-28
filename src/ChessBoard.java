@@ -7,10 +7,10 @@ public class ChessBoard {
 	}
 
 	public void printBoard(){
-		int count = 1;
+		int count = 8;
 		for(Piece[] file: board){
 			System.out.print(count);
-			count++;
+			count--;
 			for(Piece rank: file){
 				if(rank == null){
 					System.out.print(" [\u3000]");
@@ -48,6 +48,9 @@ public class ChessBoard {
 		board[7][5] = new Bishop(PieceEnum.WHITE_BISHOP, 7, 5);
 		board[7][4] = new King(PieceEnum.WHITE_KING, 7, 4);
 		board[7][3] = new Queen(PieceEnum.WHITE_QUEEN, 7, 3);
+	}
 
+	public Piece[][] getBoard(){
+		return board;
 	}
 }

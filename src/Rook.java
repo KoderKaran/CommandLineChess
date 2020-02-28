@@ -4,12 +4,8 @@ public class Rook extends Piece {
     }
 
     @Override
-    String[] getPossibleMoves() {
+    public String[] getPossibleMoves(ChessBoard cb) {
         return new String[0];
     }
 
-    @Override
-    void move() {
-
-    }
 }

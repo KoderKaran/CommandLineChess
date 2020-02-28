@@ -5,17 +5,9 @@ public class King extends Piece {
     }
 
     @Override
-    public String getUnicode() {
-        return getPe().getUnicode();
-    }
-
-    @Override
-    public String[] getPossibleMoves() {
+    public String[] getPossibleMoves(ChessBoard cb) {
         return new String[0];
     }
 
-    @Override
-    public void move() {
 
-    }
 }
