@@ -22,32 +22,32 @@ public class ChessBoard {
 		}
 		int letter = 97;
 		for(Piece[] fileLabel: board){
-			System.out.print(" \u3000\u205F\u2028" + (char)letter);
+			System.out.print(" \u3000\u205F" + (char)letter);
 			letter++;
 		}
 	}
 
 	public void initBoard(){
-		board[0][0] = new Piece(PieceEnum.BLACK_ROOK);
-		board[0][7] = new Piece(PieceEnum.BLACK_ROOK);
-		board[0][1] = new Piece(PieceEnum.BLACK_KNIGHT);
-		board[0][6] = new Piece(PieceEnum.BLACK_KNIGHT);
-		board[0][2] = new Piece(PieceEnum.BLACK_BISHOP);
-		board[0][5] = new Piece(PieceEnum.BLACK_BISHOP);
-		board[0][4] = new Piece(PieceEnum.BLACK_KING);
-		board[0][3] = new Piece(PieceEnum.BLACK_QUEEN);
+		board[0][0] = new Rook(PieceEnum.BLACK_ROOK, 0, 0);
+		board[0][7] = new Rook(PieceEnum.BLACK_ROOK, 0, 7);
+		board[0][1] = new Knight(PieceEnum.BLACK_KNIGHT, 0, 1);
+		board[0][6] = new Knight(PieceEnum.BLACK_KNIGHT, 0, 6);
+		board[0][2] = new Bishop(PieceEnum.BLACK_BISHOP, 0, 2);
+		board[0][5] = new Bishop(PieceEnum.BLACK_BISHOP, 0, 5);
+		board[0][4] = new King(PieceEnum.BLACK_KING, 0, 4);
+		board[0][3] = new Queen(PieceEnum.BLACK_QUEEN, 0, 3);
 		for(int i = 0; i < 8; i++){
-			board[1][i] = new Piece(PieceEnum.BLACK_PAWN);
-			board[6][i] = new Piece(PieceEnum.WHITE_PAWN);
+			board[1][i] = new Pawn(PieceEnum.BLACK_PAWN, 1, i);
+			board[6][i] =  new Pawn(PieceEnum.WHITE_PAWN, 6, i);
 		}
-		board[7][0] = new Piece(PieceEnum.WHITE_ROOK);
-		board[7][7] = new Piece(PieceEnum.WHITE_ROOK);
-		board[7][1] = new Piece(PieceEnum.WHITE_KNIGHT);
-		board[7][6] = new Piece(PieceEnum.WHITE_KNIGHT);
-		board[7][2] = new Piece(PieceEnum.WHITE_BISHOP);
-		board[7][5] = new Piece(PieceEnum.WHITE_BISHOP);
-		board[7][4] = new Piece(PieceEnum.WHITE_KING);
-		board[7][3] = new Piece(PieceEnum.WHITE_QUEEN);
+		board[7][0] = new Rook(PieceEnum.WHITE_ROOK, 7, 0);
+		board[7][7] = new Rook(PieceEnum.WHITE_ROOK, 7, 7);
+		board[7][1] = new Knight(PieceEnum.WHITE_KNIGHT, 7, 1);
+		board[7][6] = new Knight(PieceEnum.WHITE_KNIGHT, 7, 6);
+		board[7][2] = new Bishop(PieceEnum.WHITE_BISHOP, 7, 2);
+		board[7][5] = new Bishop(PieceEnum.WHITE_BISHOP, 7, 5);
+		board[7][4] = new King(PieceEnum.WHITE_KING, 7, 4);
+		board[7][3] = new Queen(PieceEnum.WHITE_QUEEN, 7, 3);
 
 	}
 }
