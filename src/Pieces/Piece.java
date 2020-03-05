@@ -6,7 +6,7 @@ public abstract class Piece {
 	private PieceEnum pe;
 	private Position pos;
 	private String strPos;
-	private int[] possibleDir;
+	private int[][] possibleDir;
 
 	public Piece(PieceEnum newPe, int initRank, int initFile){
 		pe = newPe;
@@ -16,11 +16,11 @@ public abstract class Piece {
 		strPos = indexToCoords(pos);
 	}
 
-	public int[] getPossibleDir(){
+	public int[][] getPossibleDir(){
 		return possibleDir;
 	}
 
-	public void setPossibleDir(int[] newPossibleDir){
+	public void setPossibleDir(int[][] newPossibleDir){
 		possibleDir = newPossibleDir;
 	}
 

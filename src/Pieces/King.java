@@ -9,12 +9,13 @@ public class King extends Piece {
 
     public King(PieceEnum king, int rank, int file){
         super(king, rank, file);
+        this.setPossibleDir(new int[][]{{0,1}, {0,-1}, {1,0}, {-1,0}, {1,1}, {-1,1}, {1,-1}, {-1,-1}});
     }
 
     @Override
     public ArrayList<Position> getPossibleMoves(ChessBoard cb) {
         Piece[][] board = cb.getBoard();
-        int[] rankOffsets = {0, 0, 1, -1, 1, -1, 1, 1};
+        int[] rankOffsets = {0, 0, 1, -1, 1, -1, 1, -1};
         int[] fileOffsets = {1, -1, 0, 0, 1, 1, -1, -1};
         ArrayList<Position> possibleMoves = new ArrayList<>();
         Position currPos = this.getPos();

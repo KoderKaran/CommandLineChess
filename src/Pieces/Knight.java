@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Knight extends Piece {
     public Knight(PieceEnum knight, int rank, int file) {
         super(knight, rank, file);
+        this.setPossibleDir(new int[][]{{2,-1}, {2,1}, {1,-2}, {1,2}, {-1,-2}, {-1,2}, {-2,1}, {-2,-1}});
     }
 
     @Override

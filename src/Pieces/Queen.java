@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Queen extends Piece {
     public Queen(PieceEnum queen, int rank, int file) {
         super(queen, rank, file);
+        this.setPossibleDir(new int[][]{{1,0}, {-1,0}, {0,1}, {0,-1}, {1,1}, {1,-1}, {-1,1}, {-1,-1}});
     }
 
     @Override
@@ -12,7 +13,7 @@ public class Queen extends Piece {
         Piece[][] board = cb.getBoard();
         ArrayList<Position> possibleMoves = new ArrayList<>();
         Position currPos = this.getPos();
-        int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
+        int[][] directions = {{1,0}, {-1,0}, {0,1}, {0,-1}, {1,1}, {1,-1}, {-1,1}, {-1,-1}};
         for(int[] dir : directions) {
             int rankMod = dir[0];
             int fileMod = dir[1];
