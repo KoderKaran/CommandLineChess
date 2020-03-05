@@ -1,3 +1,7 @@
+package Game;
+
+import Pieces.*;
+
 public class ChessBoard {
 	private Piece[][] board;
 

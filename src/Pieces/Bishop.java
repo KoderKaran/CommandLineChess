@@ -1,16 +1,19 @@
+package Pieces;
+import Game.ChessBoard;
 import java.util.ArrayList;
 
-public class Rook extends Piece {
-    public Rook(PieceEnum rook, int rank, int file) {
-        super(rook, rank, file);
+public class Bishop extends Piece {
+    public Bishop(PieceEnum bishop, int rank, int file) {
+        super(bishop, rank, file);
     }
 
     @Override
     public ArrayList<Position> getPossibleMoves(ChessBoard cb) {
+        System.out.println("hi");
         Piece[][] board = cb.getBoard();
         ArrayList<Position> possibleMoves = new ArrayList<>();
         Position currPos = this.getPos();
-        int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+        int[][] directions = {{1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
         for(int[] dir : directions) {
             int rankMod = dir[0];
             int fileMod = dir[1];
@@ -35,7 +38,12 @@ public class Rook extends Piece {
                     done = true;
                 }
             }
+            System.out.println(dir[0]);
         }
         return possibleMoves;
     }
+
 }
+
+
+

@@ -1,9 +1,12 @@
+package Pieces;
+import Game.ChessBoard;
 import java.util.ArrayList;
 
 public abstract class Piece {
 	private PieceEnum pe;
 	private Position pos;
 	private String strPos;
+	private int[] possibleDir;
 
 	public Piece(PieceEnum newPe, int initRank, int initFile){
 		pe = newPe;
@@ -11,6 +14,14 @@ public abstract class Piece {
 		pos.setFile(initFile);
 		pos.setRank(initRank);
 		strPos = indexToCoords(pos);
+	}
+
+	public int[] getPossibleDir(){
+		return possibleDir;
+	}
+
+	public void setPossibleDir(int[] newPossibleDir){
+		possibleDir = newPossibleDir;
 	}
 
 	public PieceEnum getPe(){
@@ -48,7 +59,7 @@ public abstract class Piece {
 
 	@Override
 	public String toString(){
-		return "Piece at: " + this.getPos();
+		return "Pieces.Piece at: " + this.getPos();
 	}
 
 	public static String indexToCoords(Position pos){
@@ -85,5 +96,6 @@ public abstract class Piece {
 	public Position getPos(){
 		return pos;
 	}
-	abstract ArrayList<Position> getPossibleMoves(ChessBoard cb);
+
+	public abstract ArrayList<Position> getPossibleMoves(ChessBoard cb);
 }

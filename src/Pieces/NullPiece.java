@@ -1,3 +1,5 @@
+package Pieces;
+import Game.ChessBoard;
 import java.util.ArrayList;
 
 public class NullPiece extends Piece {
@@ -7,7 +9,7 @@ public class NullPiece extends Piece {
 	}
 
 	@Override
-	ArrayList<Position> getPossibleMoves(ChessBoard cb) {
+	public ArrayList<Position> getPossibleMoves(ChessBoard cb) {
 		return new ArrayList<Position>();
 	}
 }

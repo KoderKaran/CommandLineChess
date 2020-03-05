@@ -1,3 +1,8 @@
+package Game;
+
+import Pieces.Piece;
+import Pieces.Position;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 

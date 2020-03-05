@@ -1,3 +1,5 @@
+package Pieces;
+import Game.ChessBoard;
 import java.util.ArrayList;
 
 public class Knight extends Piece {

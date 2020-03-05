@@ -1,8 +1,10 @@
+package Pieces;
+import Game.ChessBoard;
 import java.util.ArrayList;
 
-public class Queen extends Piece {
-    public Queen(PieceEnum queen, int rank, int file) {
-        super(queen, rank, file);
+public class Rook extends Piece {
+    public Rook(PieceEnum rook, int rank, int file) {
+        super(rook, rank, file);
     }
 
     @Override
@@ -10,7 +12,7 @@ public class Queen extends Piece {
         Piece[][] board = cb.getBoard();
         ArrayList<Position> possibleMoves = new ArrayList<>();
         Position currPos = this.getPos();
-        int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
+        int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
         for(int[] dir : directions) {
             int rankMod = dir[0];
             int fileMod = dir[1];
@@ -36,13 +38,6 @@ public class Queen extends Piece {
                 }
             }
         }
-        System.out.print("Possible moves: [ ");
-        for(Position p : possibleMoves){
-            System.out.print(p + ", ");
-        }
-        System.out.print("]\n");
         return possibleMoves;
     }
-
-
 }

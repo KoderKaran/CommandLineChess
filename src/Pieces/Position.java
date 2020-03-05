@@ -1,3 +1,5 @@
+package Pieces;
+
 public class Position{
 	private int rank;
 	private int file;
