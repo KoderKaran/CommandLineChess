@@ -1,40 +1,59 @@
+import java.util.ArrayList;
+
 public abstract class Piece {
+	private PieceEnum pe;
+	private Position pos;
+	private String strPos;
 
 	public Piece(PieceEnum newPe, int initRank, int initFile){
 		pe = newPe;
-		rank = initRank;
-		file = initFile;
-	}
-
-	private PieceEnum pe;
-	private int rank;
-	private int file;
-
-	public void setRank(int newRank){
-		if(newRank >= 0 && newRank <= 7){
-			rank = newRank;
-		}
-	}
-
-	public void setFile(int newFile){
-		if(newFile >= 0 && newFile <=7){
-			file = newFile;
-		}
+		pos = new Position();
+		pos.setFile(initFile);
+		pos.setRank(initRank);
+		strPos = indexToCoords(pos);
 	}
 
 	public PieceEnum getPe(){
 		return pe;
 	}
 
-	public int getRank(){
-		return rank;
+	public static Position coordsToIndex(String pos){
+		Position newPos = new Position();
+		char file = pos.charAt(0);
+		int intFile = (int)file-97;
+		int rank = Integer.parseInt(pos.substring(1));
+		System.out.println("rank "+ rank);
+		int newRank;
+		if(rank == 8){
+			newRank = 0;
+		}else if(rank == 7){
+			newRank = 1;
+		}else if(rank == 6){
+			newRank = 2;
+		}else if(rank == 5){
+			newRank = 3;
+		}else if(rank == 4){
+			newRank = 4;
+		}else if(rank == 3){
+			newRank = 5;
+		}else if(rank == 2){
+			newRank = 6;
+		}else{
+			newRank = 7;
+		}
+		newPos.setFile(intFile);
+		newPos.setRank(newRank);
+		return newPos;
 	}
 
-	public int getFile(){
-		return file;
+	@Override
+	public String toString(){
+		return "Piece at: " + this.getPos();
 	}
 
-	public String indexToCoords(int rank, int file){
+	public static String indexToCoords(Position pos){
+		int file = pos.getFile();
+		int rank = pos.getRank();
 		int fileInt = 97 + file;
 		char fileChar = (char) fileInt;
 		int rankInt;
@@ -62,5 +81,9 @@ public abstract class Piece {
 	public String getUnicode(){
 		return pe.getUnicode();
 	}
-	abstract String[] getPossibleMoves(ChessBoard cb);
+
+	public Position getPos(){
+		return pos;
+	}
+	abstract ArrayList<Position> getPossibleMoves(ChessBoard cb);
 }
