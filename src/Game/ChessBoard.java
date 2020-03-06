@@ -32,6 +32,7 @@ public class ChessBoard {
 
 
 	public void printBoard(){
+		System.out.println("PRINTING");
 		int count = 8;
 		for(Piece[] file: board){
 			System.out.print(count);

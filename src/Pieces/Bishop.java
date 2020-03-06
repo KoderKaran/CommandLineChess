@@ -9,6 +9,11 @@ public class Bishop extends Piece {
     }
 
     @Override
+    public boolean isValidMove(ChessBoard chessBoard, String targetSquare) {
+        return false;
+    }
+
+    @Override
     public ArrayList<Position> getPossibleMoves(ChessBoard cb) {
         System.out.println("hi");
         Piece[][] board = cb.getBoard();

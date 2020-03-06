@@ -24,6 +24,18 @@ public abstract class Piece {
 		possibleDir = newPossibleDir;
 	}
 
+	public String getColor(){
+		return this.pe.getColor();
+	}
+
+	public int getRank(){
+		return this.pos.getRank();
+	}
+
+	public int getFile(){
+		return this.pos.getFile();
+	}
+
 	public PieceEnum getPe(){
 		return pe;
 	}
@@ -96,6 +108,8 @@ public abstract class Piece {
 	public Position getPos(){
 		return pos;
 	}
+
+	public abstract boolean isValidMove(ChessBoard chessBoard, String targetSquare);
 
 	public abstract ArrayList<Position> getPossibleMoves(ChessBoard cb);
 }

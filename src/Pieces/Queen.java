@@ -9,6 +9,11 @@ public class Queen extends Piece {
     }
 
     @Override
+    public boolean isValidMove(ChessBoard chessBoard, String targetSquare) {
+        return false;
+    }
+
+    @Override
     public ArrayList<Position> getPossibleMoves(ChessBoard cb) {
         Piece[][] board = cb.getBoard();
         ArrayList<Position> possibleMoves = new ArrayList<>();

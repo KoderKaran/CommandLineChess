@@ -13,6 +13,11 @@ public class King extends Piece {
     }
 
     @Override
+    public boolean isValidMove(ChessBoard chessBoard, String targetSquare) {
+        return false;
+    }
+
+    @Override
     public ArrayList<Position> getPossibleMoves(ChessBoard cb) {
         Piece[][] board = cb.getBoard();
         int[] rankOffsets = {0, 0, 1, -1, 1, -1, 1, -1};

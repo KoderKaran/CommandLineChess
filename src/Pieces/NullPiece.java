@@ -9,6 +9,16 @@ public class NullPiece extends Piece {
 	}
 
 	@Override
+	public boolean isValidMove(ChessBoard chessBoard, String targetSquare) {
+		return false;
+	}
+
+	@Override
+	public String toString(){
+		return "this is the null bruh";
+	}
+
+	@Override
 	public ArrayList<Position> getPossibleMoves(ChessBoard cb) {
 		return new ArrayList<Position>();
 	}

@@ -1,6 +1,5 @@
-import Game.Game;
 import Game.ChessBoard;
-import Pieces.Position;
+import Game.Game;
 
 public class TestChess {
 	public static void main(String[] args) throws InterruptedException {
@@ -9,8 +8,7 @@ public class TestChess {
 		board.printBoard();
 		game.printInstructions();
 		while(true) {
-			Position[] moves = game.getMove();
-			game.cycle(moves);
+			game.cycle();
 		}
 	}
 }

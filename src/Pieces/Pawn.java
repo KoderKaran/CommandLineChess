@@ -3,15 +3,40 @@ import Game.ChessBoard;
 import java.util.ArrayList;
 
 public class Pawn extends Piece {
+
     private boolean moved;
+
     public Pawn(PieceEnum pawn, int rank, int file) {
         super(pawn, rank, file);
         moved = false;
-        if(this.getPe().getColor().equals("W")){
+        if(this.getColor().equals("W")){
             this.setPossibleDir(new int[][]{{-1, 0}, {-2, 0}});
-        }else if(this.getPe().getColor().equals("B")){
+        }else if(this.getColor().equals("B")){
             this.setPossibleDir(new int[][]{{1, 0}, {2, 0}});
         }
+    }
+
+    @Override
+    public boolean isValidMove(ChessBoard chessBoard, String targetSquare) {
+        Position targetPos = coordsToIndex(targetSquare);
+        Piece[][] board = chessBoard.getBoard();
+        boolean validMove = false;
+        for(int[] dir : getPossibleDir()){
+           if(board[getRank()+dir[0]][getFile()+dir[1]] instanceof NullPiece){
+               if(targetPos.getRank() == getRank()+dir[0] && targetPos.getFile() == getFile()+dir[1]){
+                   validMove = true;
+               }
+           }
+        }
+        if(validMove && !moved){
+            moved = true;
+            if(this.getColor().equals("W")){
+                this.setPossibleDir(new int[][]{{-1, 0}});
+            }else if(this.getColor().equals("B")){
+                this.setPossibleDir(new int[][]{{1, 0}});
+            }
+        }
+        return validMove;
     }
 
     @Override
